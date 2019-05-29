@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>OEE - 工业微服务</title>
+
+		<meta name="description" content="and Validation" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/font-awesome/4.5.0/css/font-awesome.min.css' %}" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="{% static 'assets/css/select2.min.css' %}" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="{% static 'assets/css/fonts.googleapis.com.css' %}" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="{% static 'assets/css/ace.min.css' %}" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/ace-skins.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/ace-rtl.min.css' %}" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="{% static 'assets/js/ace-extra.min.js' %}"></script>
+		<script src="{% static 'assets/js/echarts.min.js' %}"></script>
+		
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<data></data>
+	
+	<body class="no-skin">
+		<div id="navbar" class="navbar navbar-default    navbar-collapse       h-navbar ace-save-state">
+			<div class="navbar-container ace-save-state" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="index.html" class="navbar-brand">
+						<small>
+							<i class="fa fa-leaf"></i>
+							OEE
+						</small>
+					</a>
+				</div>
+			</div><!-- /.navbar-container -->
+		</div>
+
+		<div class="main-container ace-save-state" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.loadState('main-container')}catch(e){}
+			</script>
+
+			
+			<div id="sidebar" class="sidebar      h-sidebar                navbar-collapse collapse          ace-save-state">
+				<script type="text/javascript">
+					try{ace.settings.loadState('sidebar')}catch(e){}
+				</script>
+
+				<ul class="nav nav-list">
+					<li class="hover">
+						<a href="./OeeMachineList">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> OEE 可视化 </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+					<li class="hover">
+						<a href="./OeeConfig">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> 参数设置  </span>
+
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+
+					<li class="hover">
+						<a href="./OeeTransaction">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<span class="menu-text"> 事务上报  </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+				</ul><!-- /.nav-list -->
+			</div>
+			
+			
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								OEE-工业微服务
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									OEE 参数设置
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="center">
+									<div class="row">
+										<div class="col-sm-4">
+											<h3 class="header smaller blue">时间稼动率参数设置（Time utilization rate）</h3>
+											<p> 统计设备的综合效率，包括时间稼动率、性能稼动率和良品率</p>
+							
+												<table  class="table  table-bordered table-hover table-condensed">
+													<thead>
+														<tr>
+															<th class="center">出勤时间</th>
+															<th class="center">描述</th>
+															<th class="center">操作</th>
+														</tr>
+													</thead>
+													<tbody>
+															<tr>
+																<td class="center">
+																	<span id="attrWorkingTimeValue" >{{WorkingTime}}</span>
+																	<input id="input-attrWorkingTime" class="hidden">
+																</td>
+																<td class="center">一天的出勤时间</td>
+																<td class="center">	
+																	<button  id="btn-submit" onclick='WorkingTimeSubmitBtnClick()'  class="btn btn-xs btn-success btn-edit hidden">
+																		<i class="ace-icon fa fa-check  bigger-120"></i>
+																	</button>
+																	<button id="btn-edit" onclick='WorkingTimeEditBtnClick()' class="btn btn-xs btn-info btn-stay">
+																		<i class="ace-icon fa fa-pencil bigger-120"></i>
+																	</button>
+																	<button id="btn-trash" onclick='WorkingTimeTrashBtnClick()' class="btn btn-xs btn-danger btn-edit hidden">
+																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																	</button>
+																</td>
+															</tr>
+													</tbody>
+												</table>
+										</div>
+										<div class="col-sm-8">
+											<h3 class="header smaller blue">性能稼动率参数设置（Production efficiency）</h3>
+											<p>设备有效工作时间和计划工作时间的比例</p>
+											<table  class="table  table-bordered table-hover table-condensed">
+													<thead>
+														<tr>
+															<th class="center">设备编码</th>
+															<th class="center">产品编码</th>
+															<th class="center">标准工时（s）</th>
+															<th class="center">操作</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for item in StandardTimeList %}
+															<tr>
+																<td class="center">
+																	<span>{{item.value.MachineName}}</span>
+																</td>
+																<td class="center">
+																	<span>{{item.value.ProductName}}</span>
+																</td>
+																<td class=" center">
+																	<span class="lable-value-{{item.id}}" >{{item.value.value}}</span>
+																	<input class="hidden input-value-{{item.id}}" >
+																</td>
+																<td class="center">	
+																	<button onclick='STSubmitBtnClick("{{item.id}}")' class="{{item.id}}-submit btn btn-xs btn-success btn-edit hidden" >
+																		<i class="ace-icon fa fa-check  bigger-120"></i>
+																	<button onclick='STEditBtnClick("{{item.id}}")' class="{{item.id}}-edit btn btn-xs btn-info btn-stay">
+																		<i class="ace-icon fa fa-pencil bigger-120"></i>
+																	</button>
+																	<button  onclick='STTrashBtnClick("{{item.id}}")' class="{{item.id}}-trash btn btn-xs btn-default btn-edit hidden">
+																		<i class="ace-icon fa fa-reply bigger-120"></i>
+																	</button>
+																	<button  onclick='DeleteBtnClick("{{item.id}}")' class="{{item.id}}-delete btn btn-xs btn-danger btn-edit">
+																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																	</button>
+																</td>
+															</tr>
+														{% endfor %}
+														
+															<tr>
+																<td class="center"><input class="hidden input-value-new input-value-new-MachineName" ></td>
+																<td class="center"><input class="hidden input-value-new input-value-new-ProductName" ></td>
+																<td class="center"><input class="hidden input-value-new input-value-new-value" ></td>
+																<td class="center">	
+																	<button onclick='STCreateSubmitBtnClick("new")' class="new-submit btn btn-xs btn-success btn-edit hidden" >
+																		<i class="ace-icon fa fa-check  bigger-120"></i>
+																	<button onclick='STEditBtnClick("new")' class="new-edit btn btn-xs btn-success btn-stay">
+																		<i class="ace-icon fa fa-plus bigger-120"></i>
+																	</button>
+																	<button  onclick='STTrashBtnClick("new")' class="new-trash btn btn-xs btn-danger btn-edit hidden">
+																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																	</button>
+																</td>
+															</tr>
+													</tbody>
+												</table>
+										</div>
+									</div>									
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+
+
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">CASICloud</span>
+							oee-cloud &copy; 2013-2014
+						</span>
+
+						&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="{% static 'assets/js/jquery-2.1.4.min.js'  %}"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="{% static 'assets/js/wizard.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery-additional-methods.min.js' %}"></script>
+		<script src="{% static 'assets/js/bootbox.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.maskedinput.min.js' %}"></script>
+		<script src="{% static 'assets/js/select2.min.js' %}"></script>
+
+		<!-- ace scripts -->
+		<script src="{% static 'assets/js/ace-elements.min.js' %}"></script>
+		<script src="{% static 'assets/js/ace.min.js' %}"></script>
+		<!-- inline scripts related to this page -->
+		
+		<script type="text/javascript">
+
+		function WorkingTimeSubmitBtnClick(){
+			value = $('#input-attrWorkingTime').val()
+			urlstr = "./UpdateOeeConf"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {
+						'id':'',
+						'type':'WT',
+						'value':value,
+					},
+					success:
+				        function(data) {
+				        	//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								if(obj.code==0){
+									$('#attrWorkingTimeValue').html(value)
+									$('#attrWorkingTimeValue').removeClass("hidden")
+									$('#input-attrWorkingTime').addClass("hidden")						
+									$('#btn-submit').addClass("hidden")
+									$('#btn-edit').removeClass("hidden")
+									$('#btn-trash').addClass("hidden")
+									
+								}								
+				        	}
+				        }
+			    });
+		}
+		
+		function WorkingTimeEditBtnClick(){
+			$('#btn-edit').addClass("hidden")
+			$('#btn-submit').removeClass("hidden")
+			$('#btn-trash').removeClass("hidden")
+			$('#input-attrWorkingTime').removeClass("hidden")
+			$('#attrWorkingTimeValue').addClass("hidden")
+		}
+		
+		function WorkingTimeTrashBtnClick(){
+			$('#attrWorkingTimeValue').removeClass("hidden")
+			$('#input-attrWorkingTime').addClass("hidden")			
+			$('#btn-submit').addClass("hidden")
+			$('#btn-edit').removeClass("hidden")
+			$('#btn-trash').addClass("hidden")
+		}
+		
+		function STSubmitBtnClick(id){
+			value = $('.input-value-'+id).val()
+			urlstr = "./UpdateOeeConf"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {
+						'id':id,
+						'type':'ST',
+						'value':value,	
+					},
+					success:
+				        function(data) {
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								if(obj.code==0){
+									$('.lable-value-'+id).html(value)
+									$('.lable-value-'+id).removeClass("hidden")
+									$('.input-value-'+id).addClass("hidden")						
+									$('.'+id+'-submit').addClass("hidden")
+									$('.'+id+'-edit').removeClass("hidden")
+									$('.'+id+'-trash').addClass("hidden")
+									$('.'+id+'-delete').removeClass("hidden")
+								}								
+				        	}
+				        }
+			    });
+		}
+		
+		function STCreateSubmitBtnClick(id){	
+			MachineName = $('.input-value-new-MachineName').val()
+			ProductName = $('.input-value-new-ProductName').val()
+			value = $('.input-value-new-value').val()
+			//alert(MachineName)
+			dataObj={
+				'type':'ST',
+				'value':value,
+				'ProductName':ProductName,
+				'MachineName':MachineName,
+			}
+			urlstr = "./CreateOeeConf"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: dataObj,
+					success:
+				        function(data) {
+							//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								if(obj.code==0){
+									location.reload()
+								}								
+				        	}
+				        }
+			    });
+		}
+		
+		function STEditBtnClick(id){
+			$('.'+id+'-edit').addClass("hidden")
+			$('.'+id+'-submit').removeClass("hidden")
+			$('.'+id+'-trash').removeClass("hidden")
+			$('.input-value-'+id).removeClass("hidden")
+			$('.lable-value-'+id).addClass("hidden")
+			$('.'+id+'-delete').addClass("hidden")
+			
+		}
+		
+		function STTrashBtnClick(id){
+			$('.lable-value-'+id).removeClass("hidden")
+			$('.input-value-'+id).addClass("hidden")			
+			$('.'+id+'-submit').addClass("hidden")
+			$('.'+id+'-edit').removeClass("hidden")
+			$('.'+id+'-delete').removeClass("hidden")
+			$('.'+id+'-trash').addClass("hidden")
+		}
+	
+		function DeleteBtnClick(id){
+			
+			dataObj={
+				'id':id,
+			}
+			urlstr = "./DeleteOeeConf"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: dataObj,
+					success:
+				        function(data) {
+							//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								if(obj.code==0){
+									location.reload()	
+								}								
+				        	}
+				        }
+			    });
+		}
+		</script>
+		
+	</body>
+</html>

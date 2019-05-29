@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>OEE - 工业微服务</title>
+
+		<meta name="description" content="and Validation" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/font-awesome/4.5.0/css/font-awesome.min.css' %}" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="{% static 'assets/css/select2.min.css' %}" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="{% static 'assets/css/fonts.googleapis.com.css' %}" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="{% static 'assets/css/ace.min.css' %}" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/ace-skins.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/ace-rtl.min.css' %}" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="{% static 'assets/js/ace-extra.min.js' %}"></script>
+		<script src="{% static 'assets/js/echarts.min.js' %}"></script>
+				
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<data></data>
+	
+	<body class="no-skin">
+		<div id="navbar" class="navbar navbar-default    navbar-collapse       h-navbar ace-save-state">
+			<div class="navbar-container ace-save-state" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="index.html" class="navbar-brand">
+						<small>
+							<i class="fa fa-leaf"></i>
+							OEE
+						</small>
+					</a>
+				</div>
+			</div><!-- /.navbar-container -->
+		</div>
+
+		<div class="main-container ace-save-state" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.loadState('main-container')}catch(e){}
+			</script>
+
+			
+			<div id="sidebar" class="sidebar      h-sidebar                navbar-collapse collapse          ace-save-state">
+				<script type="text/javascript">
+					try{ace.settings.loadState('sidebar')}catch(e){}
+				</script>
+
+				<ul class="nav nav-list">
+					<li class="hover">
+						<a href="./OeeMachineList">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> OEE 可视化 </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+					<li class="hover">
+						<a href="./OeeConfig">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> 参数设置  </span>
+
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+
+					<li class="hover">
+						<a href="./OeeTransaction">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<span class="menu-text"> 事务上报  </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+				</ul><!-- /.nav-list -->
+			</div>
+			
+			
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								OEE-工业微服务
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									OEE指标可视化
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="hidden-sm hidden-xs">
+									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
+										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
+										收起/展开 菜单
+									</button>
+								</div>
+
+								
+								<div class="space-10"></div>
+								
+								<div class="center">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="input-group">
+												<div class="space-6"></div>
+												<span class="input-group-addon">
+													<i class="ace-icon fa fa-cogs"></i>
+												</span>
+												<select class="form-control" id='MachineSelect'>
+													{% for item in MachineList %}
+													<option value="{{item.instruName}}">{{item.instruName}}</option>
+													{% endfor %}
+												</select>
+												<span class="input-group-btn">
+													<button id= 'search-btn' onclick="search()" type="button" class="btn btn-purple btn-sm">
+														<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+														查看
+													</button>
+												</span>
+											</div>
+										</div>
+									</div>
+									
+									<div class="space-4"></div>
+									
+									<div class="row">
+										<div class="col-sm-12">
+											<table id="simple-table" class="table  table-bordered table-hover">
+												<thead>
+													<tr>
+														<!---
+														<th class="center">
+															<label class="pos-rel">
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</th>
+														---->
+														<th class="center">设备名称</th>
+														<th class="center">设备类型</th>
+														<th class="center">设备型号</th>
+														<th class="center">今日测试记录数</th>
+													</tr>
+												</thead>
+
+												<tbody>
+														<tr>
+															<td class="center" id='MachineName'>{{MachineName}}</td>
+															<td class="center" id='MachineType'>
+															</td>
+															<td class="center" id='MachineDscp'>
+															</td>
+															<td class="center" id='MachineCount'>							
+															</td>
+														</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>	
+									<div class="row">
+										<h3 class="header smaller blue">设备综合效率（OEE）</h3>
+										<p> 统计设备的综合效率，包括时间稼动率、性能稼动率和良品率</p>
+										<div id="OEE-chart" style="width: 100%;height:300px;"></div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6">
+											<h3 class="header smaller blue">良品率（Yield）</h3>
+											<p>产出的良品数量和实际产出总量的比例</p>
+												 <div id="YR-chart" style="width: 100%;height:400px;"></div>
+										</div>
+										<div class="col-sm-6">
+											<h3 class="header smaller blue">性能稼动率（Production efficiency）</h3>
+											<p>某一时段实际产出和标准产出的比例</p>
+											<div id="PER-chart" style="width: 100%;height:400px;"></div>
+										</div>
+									</div>
+									<div class="row">
+											<h3 class="header smaller blue">时间稼动率（Time utilization rate）</h3>
+											<p>设备有效工作时间和计划工作时间的比例</p>
+											<div class="progress">
+												<div class="DT progress-bar progress-bar-danger" style="width: 0%;">故障</div>
+												<div class="COT progress-bar progress-bar-yellow" style="width: 0%;">换线</div>
+												<div class="AT progress-bar progress-bar-info" style="width: 0%;">调试</div>
+												<div class="RHT progress-bar progress-bar-warning" style="width: 0%;">不良</div>
+												<div class="PDT progress-bar progress-bar-purple" style="width: 0%;">计划</div>
+												<div class="OK progress-bar progress-bar-success" style="width: 0%;">正常</div>
+								
+								
+											</div>
+											 <div id="TUR-chart" style="width: 100%;height:400px;" class ="hidden"></div>
+											 
+											<h2 id="TUR-Value">
+												
+											</h2>
+									</div>
+										
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+
+
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">CASICloud</span>
+							oee-cloud &copy; 2013-2014
+						</span>
+
+						&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="{% static 'assets/js/jquery-2.1.4.min.js'  %}"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+		<!-- page specific plugin scripts -->
+		<script src="{% static 'assets/js/wizard.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery-additional-methods.min.js' %}"></script>
+		<script src="{% static 'assets/js/bootbox.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.maskedinput.min.js' %}"></script>
+		<script src="{% static 'assets/js/select2.min.js' %}"></script>
+
+		<!-- ace scripts -->
+		<script src="{% static 'assets/js/ace-elements.min.js' %}"></script>
+		<script src="{% static 'assets/js/ace.min.js' %}"></script>
+		<!-- inline scripts related to this page -->
+
+		<!-- 时间稼动率 -->
+
+		
+		<script type="text/javascript">
+		
+			function LoadMachineInfo(MachineName){
+
+				urlstr = "./LoadMachineInfo"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {'MachineName':MachineName},
+					success:
+				        function(data) {
+								//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+									$('#MachineName').html(obj.data.MachineInfo.instruName)
+									$('#MachineType').html(obj.data.MachineInfo.type)
+									$('#MachineDscp').html(obj.data.MachineInfo.dscp)
+									$('#MachineCount').html(obj.data.MachineInfo.count)							
+				        	}
+				        }
+			    });
+			}
+		
+		
+			jQuery(function($) {
+				MachineName=$('#MachineName').html()
+				LoadMachineInfo(MachineName)
+			})
+		</script>
+		
+		<!----  OEE CHART ----->
+		<script type="text/javascript">
+		
+		function search(){
+			MachineName=$('#MachineSelect').val()
+			
+			LoadData(MachineName)
+			LoadMachineInfo(MachineName)
+		}
+		
+		
+		function initOEEChart(xData,yData){
+			var dom = document.getElementById("OEE-chart");
+			var myChart = echarts.init(dom);
+			var app = {};
+			
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: true,
+					data: xData
+			 },
+			 yAxis: {
+					 type: 'value',
+					 axisLabel: { show: true, interval: 'auto', formatter: '{value} %' },
+			 },
+			 series: [{
+					 data: yData,
+					 type: 'line',
+					 areaStyle: {}
+			 }]
+			};
+			
+			if (option && typeof option === "object") {
+			 myChart.setOption(option, true);
+			}
+		}
+		
+		function initYRChart(xData,yData){
+			var dom = document.getElementById("YR-chart");
+			var myChart = echarts.init(dom);
+			var app = {};
+			
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: true,
+					data: xData
+			 },
+			 yAxis: {
+					 type: 'value',
+					 axisLabel: { show: true, interval: 'auto', formatter: '{value} %' },
+			 },
+			 series: [{
+					 data: yData,
+					 type: 'line',
+					 areaStyle: {}
+			 }]
+			};
+			;
+			if (option && typeof option === "object") {
+			 myChart.setOption(option, true);
+			}
+		}
+		
+		function initPERChart(xData,yData){
+			var dom = document.getElementById("PER-chart");
+			var myChart = echarts.init(dom);
+			var app = {};
+			
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: true,
+					data: xData
+			 },
+			 yAxis: {
+					 type: 'value',
+					 axisLabel: { show: true, interval: 'auto', formatter: '{value} %' },
+			 },
+			 series: [{
+					 data: yData,
+					 type: 'line',
+					 areaStyle: {}
+			 }]
+			};
+			;
+			if (option && typeof option === "object") {
+			 myChart.setOption(option, true);
+			}
+		}
+		
+		function initTURChart(xData,yData){
+			var dom = document.getElementById("TUR-chart");
+			var myChart = echarts.init(dom);
+			var app = {};
+			
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: true,
+					data: xData
+			 },
+			yAxis: {
+					 type: 'value',
+					 axisLabel: { show: true, interval: 'auto', formatter: '{value} %' },
+			 },
+			 series: [{
+					 data: yData,
+					 type: 'line',
+					 areaStyle: {}
+			 }]
+			};
+			;
+			if (option && typeof option === "object") {
+			 myChart.setOption(option, true);
+			}
+		}
+
+				
+		
+		function LoadOEEData(MachineID){
+				urlstr = "./LoadOee"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {'MachineID':MachineID},
+					success:
+				        function(data) {
+				        	//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								initOEEChart(obj.data.xFeilds,obj.data.yValues)								
+				        	}
+				        }
+			    });
+			}
+			
+		function LoadYRData(MachineID){
+				urlstr = "./LoadYieldRate"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {'MachineID':MachineID},
+					success:
+				        function(data) {
+				        	//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								initYRChart(obj.data.xFeilds,obj.data.yValues)								
+				        	}
+				        }
+			    });
+			}
+			
+		function LoadPERData(MachineID){
+				urlstr = "./LoadProductionEfficiencyRate"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {'MachineID':MachineID},
+					success:
+				        function(data) {
+				        	//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								initPERChart(obj.data.xFeilds,obj.data.yValues)								
+				        	}
+				        }
+			    });
+			}
+			
+		function LoadTURData(MachineID){
+				urlstr = "./LoadTimeUtilizationRate"
+			    htmlobj=$.ajax({
+			    	type: 'POST',
+					url:urlstr,
+					async:false,
+					data: {'MachineID':MachineID},
+					success:
+				        function(data) {
+				        	//alert(data)
+				        	if(data!='None'){
+				        		var obj = eval('(' + data + ')');
+								num=obj.data.yValues.length
+								value=obj.data.yValues[num-1].toFixed(2)+'%'
+								$('#TUR-Value').html(value)
+								TData = obj.data.TransactionData
+								
+								DT=TData.DT/TData.WT*100;
+								COT=TData.COT/TData.WT*100;
+								AT=TData.AT/TData.WT*100;
+								RHT=TData.RHT/TData.WT*100;
+								PDT=TData.PDT/TData.WT*100;
+								OK=100-DT-COT-AT-RHT-PDT
+								$('.DT').attr('style','width: '+DT+'%;');
+								$('.COT').attr('style','width: '+COT+'%;');
+								$('.AT').attr('style','width: '+AT+'%;');
+								$('.RHT').attr('style','width: '+RHT+'%;');
+								$('.PDT').attr('style','width: '+PDT+'%;');
+								$('.OK').attr('style','width: '+OK+'%;');
+								//initTURChart(obj.data.xFeilds,obj.data.yValues)								
+				        	}
+				        }
+			    });
+			}
+			
+		function LoadData(ID){
+			LoadOEEData(ID)
+			LoadYRData(ID)
+			LoadPERData(ID)
+			LoadTURData(ID)
+		}
+		
+		MachineName=$('#MachineName').html()
+		LoadData(MachineName)
+		</script>
+	</body>
+</html>
