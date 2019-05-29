@@ -1,1 +1,1 @@
-python manage.py runserver 8888
+python3 manage.py runserver 8888
