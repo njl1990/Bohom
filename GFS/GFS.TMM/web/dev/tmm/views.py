@@ -4,18 +4,22 @@ from django.core import serializers
 from django.template import loader
 from bson.objectid import ObjectId
 from bson import json_util
+import tmm.service
 
 
 def TmInfo(request):
-	context = {}
-	##print(context)
-	return render(request, 'TmmInfo.html', context)
+    context = {'name':'name'}
+    print(context)
+    return render(request, 'TmmInfo.html', context)
 	
 def LoadTmData(request):
-	
-	x=[1,2,3]
-	y=[4,5,6]
-	context = {
-		'x':x,
-		'y':y,}
-	return HttpResponse(json_util.dumps(context))
+    print('LoadTmmData')
+    tmmRcdList=TmmService.LoadTmData()
+    print('ok')
+    x=[]
+    y=[]
+    for item in tmmRcdList:
+        x.append(item['time'])
+        y.append(item['tmp'])
+    context={'x':x,'y':y,}
+    return HttpResponse(json_util.dumps(context))
