@@ -3,8 +3,7 @@ from bson.objectid import ObjectId
 from tmm.common import DateStr
 from pymongo import MongoClient
 
-
-class TmmServcie:
+class TmmService:
 #Load Method 
 	def LoadTmData():
 		print('service')

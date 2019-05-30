@@ -4,8 +4,7 @@ from django.core import serializers
 from django.template import loader
 from bson.objectid import ObjectId
 from bson import json_util
-import tmm.service
-
+from tmm.service import TmmService
 
 def TmInfo(request):
     context = {'name':'name'}
