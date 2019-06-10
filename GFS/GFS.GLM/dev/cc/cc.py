@@ -27,20 +27,20 @@ def CatchUSBVideo(window_name,camera_idx):
 		filename = 'image.catch.jpg'
 		ok, frame = cap.read() 
 		cv2.imwrite(filename,frame)
-		crtDate=time.strftime("%Y-%m-%d", time.localtime())
-		crtTime=time.strftime("%H:%M", time.localtime())
-
-
+		#crtDate=time.strftime("%Y-%m-%d", time.localtime())
+		#crtTime=time.strftime("%H:%M", time.localtime())
+		'''
 		with open (filename,'rb') as image:
 			content = StringIO(image.read())
 			SaveData={
-	        	'data':bson.binary.Binary(content.getvalue()),
+				'data':bson.binary.Binary(content.getvalue()),
 				'date':crtDate,
 				'time':crtTime,
 			}
 			#collection.save(SaveData)
 			print('SaveData:    date = '+SaveData['date']+'  time = '+ SaveData['time'])
-		os.remove('image.catch.jpg')
+		'''
+		#os.remove('image.catch.jpg')
 		time.sleep(CaptureInterval)
 
 		break
