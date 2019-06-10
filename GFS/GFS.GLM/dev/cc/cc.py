@@ -4,7 +4,7 @@ import time
 import sys
 import cv2
 import shutil
-from pymongo import MongoClient
+#from pymongo import MongoClient
 from cStringIO import StringIO
 import bson.binary
 from PIL import Image
@@ -15,12 +15,12 @@ def CatchUSBVideo(window_name,camera_idx):
 	#CaptureInterval=30*3600
 	CaptureInterval=5 # for test
 
-	cv2.namedWindow(window_name)
+	#cv2.namedWindow(window_name)
 	cap = cv2.VideoCapture(camera_idx)
 
-	mongoClient = MongoClient('0.0.0.0',27016)
-	DBClient = mongoClient['glmdb']
-	collection = DBClient['glmRcd']
+	#mongoClient = MongoClient('0.0.0.0',27016)
+	#DBClient = mongoClient['glmdb']
+	#collection = DBClient['glmRcd']
 
 	while cap.isOpened():
 
@@ -38,7 +38,7 @@ def CatchUSBVideo(window_name,camera_idx):
 				'date':crtDate,
 				'time':crtTime,
 			}
-			collection.save(SaveData)
+			#collection.save(SaveData)
 			print('SaveData:    date = '+SaveData['date']+'  time = '+ SaveData['time'])
 		os.remove('image.catch.jpg')
 		time.sleep(CaptureInterval)
