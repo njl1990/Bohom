@@ -1,1 +1,1 @@
-sudo python save.py
+python save.py
