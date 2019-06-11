@@ -1,12 +1,10 @@
+from pymongo import MongoClient
+from cStringIO import StringIO
+import bson.binary
 import json
 import os
 import time
 import sys
-#import cv2
-#import shutil
-from pymongo import MongoClient
-from cStringIO import StringIO
-import bson.binary
 #from PIL import Image
 
 
