@@ -46,13 +46,15 @@ def CatchUSBVideo(window_name,camera_idx):
 
 ## Main
 def main():
-	mongoClient = MongoClient('0.0.0.0',27016)
+	mongoClient = MongoClient('192.168.3.16',27016)
 
 	DBClient = mongoClient['glmdb']
 	collection = DBClient['glmRcd']
 
 	path = './img'
 	dirs = os.listdir(path)
+	fwspath = './img/save.result'
+	fws=open(fwspath,'w')
 	for file in dirs:
 		name = os.path.basename(file)
 		if '.json' in name:
@@ -75,8 +77,9 @@ def main():
 				collection.save(SaveData)
 				print('SaveData:    date = '+SaveData['date']+'  time = '+ SaveData['time'])
 			fr.close()
-			os.remove(filename)
-			os.remove(path+'/'+name)	
-
+			fws.write(filename)
+			fws.write(path+'/'+name)	
+	print('save finish')
+	fws.close()
 if __name__ == '__main__':
 	main()
