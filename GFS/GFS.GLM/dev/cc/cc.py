@@ -21,29 +21,37 @@ def CatchUSBVideo(window_name,camera_idx):
 	#mongoClient = MongoClient('0.0.0.0',27016)
 	#DBClient = mongoClient['glmdb']
 	#collection = DBClient['glmRcd']
+	index = 0 
 
 	while cap.isOpened():
 
-		filename = 'image.catch.jpg'
+		filename = './img/image_'+str(index)+'.jpg'
+		infofilename='./img/info_'+str(index)+'.json'
 		ok, frame = cap.read() 
 		cv2.imwrite(filename,frame)
-		#crtDate=time.strftime("%Y-%m-%d", time.localtime())
-		#crtTime=time.strftime("%H:%M", time.localtime())
-		'''
+		crtDate=time.strftime("%Y-%m-%d", time.localtime())
+		crtTime=time.strftime("%H:%M", time.localtime())
+
+		fw = open(infofilename,'w')
+
 		with open (filename,'rb') as image:
 			content = StringIO(image.read())
 			SaveData={
-				'data':bson.binary.Binary(content.getvalue()),
+				'filename':filename,
+				#'data':bson.binary.Binary(content.getvalue()),
 				'date':crtDate,
 				'time':crtTime,
 			}
+			fw.write(str(SaveData))
 			#collection.save(SaveData)
-			print('SaveData:    date = '+SaveData['date']+'  time = '+ SaveData['time'])
-		'''
+			print('save file : '+filename + '\n' + infofilename)
+		fw.close
 		#os.remove('image.catch.jpg')
+		index = index  + 1
 		time.sleep(CaptureInterval)
 
-		break
+		if index ==2:
+			break
 	cap.release()
 	cv2.destroyAllWindows()
 
