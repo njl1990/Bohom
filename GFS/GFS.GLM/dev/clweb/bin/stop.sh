@@ -1,7 +1,7 @@
 # stop docker 
-sudo docker stop gfs.tmm.db
-sudo docker stop gfs.tmm.web
-sudo docker stop gfs.tmm.dc
+sudo docker stop gfs.glm.db
+sudo docker stop gfs.glm.web
+sudo docker stop gfs.glm.dc
 
 
 

@@ -7,9 +7,15 @@ from bson import json_util
 from glm.service import GlmService
 
 def Index(request):
-    context = {'name':'name'}
-    print(context)
-    return render(request, 'Overview.html', context)
+        imageList=[]
+        imageList.append('image-1.jpg')
+        imageList.append('image-2.jpg')
+        imageList.append('image-3.jpg')
+        imageList.append('image-4.jpg')
+        imageList.append('image-5.jpg')
+        imageList.append('image-6.jpg')
+        context = { 'imageList':imageList }
+        return render(request, 'Overview.html', context)
 
 '''
 def LoadTmData(request):
