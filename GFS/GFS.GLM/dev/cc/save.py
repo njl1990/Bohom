@@ -11,7 +11,7 @@ import sys
 ## Main
 def main():
 	#mongoClient = MongoClient('192.168.3.16',27016)
-	mongoClient = MongoClient('172.20.10.3',27016)
+	mongoClient = MongoClient('127.0.0.1',27016)
 	DBClient = mongoClient['glmdb']
 	collection = DBClient['glmRcd']
 
