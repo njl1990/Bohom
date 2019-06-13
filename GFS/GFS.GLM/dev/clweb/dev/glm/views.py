@@ -8,12 +8,7 @@ from glm.service import GlmService
 
 def Index(request):
         imageList=[]
-        imageList.append('image-1.jpg')
-        imageList.append('image-2.jpg')
-        imageList.append('image-3.jpg')
-        imageList.append('image-4.jpg')
-        imageList.append('image-5.jpg')
-        imageList.append('image-6.jpg')
+        imageList=GlmService.LoadDbData()
         context = { 'imageList':imageList }
         return render(request, 'Overview.html', context)
 

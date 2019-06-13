@@ -73,6 +73,14 @@ instead **sudo python **
 
 ### 3.3.2 CLweb
 
+​	Deploy Django+Python on the host server. Application name is **GLM**.
+
+* When web service start up, image data will be download into web image path from database.
+
+* Image data path：
+
+  > .\clweb\dev\static\assets\images\glm\
+
 #### 3.3.2.1 Overview.html
 
 
