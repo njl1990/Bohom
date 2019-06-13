@@ -1,32 +1,79 @@
 # GFS - Capture Log Moudle(GFS.GLM)
-GLM 实现图像日志功能，运行中能够驱动摄像头定时采集图像，并存储入库。
+GLM  is a function moudle to implement the Capture Log, witch will collect image data from usb camra.
 
 
-## Depend
+## 1 Schedule
+#### 12/6 depart the cc module and data save module
 
-### PIL
-pip install Pillow
+When I departed the old cc module, the RPI alway notice an error : 'can't import pymongo'. 
 
-### openvc
-pip install opencv-python 
+Solution: 
 
-## Structure
+use
 
-### Capture Collector (CC)
-部署运行在宿主机，直接驱动硬件
-输入：硬件
-输出：CLDB
+> python save.py
 
-### Capture Log Database (CLDB)
-部署运行在Docker容器
-输入：CC
+instead **sudo python **
 
-### Capture Log Web (CLweb)
-部署运行在Docker容器
-输入：CLDB
-输出：web
+## 2 Dependence
 
-### Log Process (CP)
-部署运行在Docker容器
-输入：CLDB
-输出：CLDB
+* PIL
+
+> pip install Pillow
+
+* openvc
+
+> pip install opencv-python 
+
+## 3 Structure
+
+### 3.1 Capture Collector (CC)
+* Deploy on the RPI (raspberry pi)
+
+* buid.sh
+
+  ​	Iinit database
+
+* run.sh/run.bat
+
+  > python cc.py
+
+  running cc main function
+
+  * Use an USB camera collecting image.
+
+  * Save image as file at local path:
+
+    > ./img
+
+### 3.2 Capture Log Database (CLDB)
+* Deploy on the host server.
+
+* Running as a docker container named : **gfs.glm.db**
+
+* port : **27016**
+
+* data path : **/home/bowen/git/Bohom/GFS/GFS.GLM/db/**
+
+* container data path: **/data/db**
+
+  > sudo docker run --name=gfs.glm.db -p 0.0.0.0:27016:27017 -v /home/bowen/git/Bohom/GFS/GFS.GLM/db/:/data/db -d mongo
+
+### 3.3 Capture Log Web (CLweb)
+
+- Deploy on the host server.
+- Running as a docker container named : **gfs.glm.web**
+- Running Python3+Django Image
+- Function:  show images and gif
+
+### 3.3.1 Log Process (CP)
+
+* Deploy on the host server.
+* Running in the container : **gfs.glm.web**
+
+### 3.3.2 CLweb
+
+#### 3.3.2.1 Overview.html
+
+
+
