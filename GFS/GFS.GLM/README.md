@@ -1,6 +1,8 @@
 # GFS - Capture Log Moudle(GFS.GLM)
 GLM  is a function moudle to implement the Capture Log, witch will collect image data from usb camra.
 
+![glm](.\doc\img\glm.png)
+
 
 ## 1 Schedule
 #### 12/6 depart the cc module and data save module
@@ -34,7 +36,7 @@ instead **sudo python **
 
   ​	Iinit database
 
-* run.sh/run.bat
+* run.sh/run.bat runs : **cc.py**
 
   > python cc.py
 
