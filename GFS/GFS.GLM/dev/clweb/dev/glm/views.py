@@ -12,6 +12,13 @@ def Index(request):
         context = { 'imageList':imageList }
         return render(request, 'Overview.html', context)
 
+
+def List(request):
+        imageList=[{'date':'2019-03-4','num':'32'},]
+        #imageList=GlmService.LoadDbData()
+        context = { 'imageList':imageList }
+        return render(request, 'List.html', context)
+
 '''
 def LoadTmData(request):
     print('LoadTmmData')

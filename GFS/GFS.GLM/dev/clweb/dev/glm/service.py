@@ -9,17 +9,20 @@ class GlmService:
 #Load Method 
 	def LoadDbData():
 		print('service')
-
+		imgList=[]
+		'''
 		mongoClient = MongoClient('db',27017)
 		DBClient = mongoClient['glmdb']
 		collection = DBClient['glmRcd']
 		result=collection.find({})
-		imgList=[]
+
+		
 		for item in result:
 			imgList.append(str(item['_id'])+'.jpg')
+		'''
 		print(imgList)
 		return imgList
-
+		
 	def remove():
 		mongoClient = MongoClient('172.20.10.3',27016)
 		DBClient = mongoClient['glmdb']
@@ -28,4 +31,3 @@ class GlmService:
 		print('ok')
 
 #GlmService.LoadDbData()
-#GlmService.remove()
