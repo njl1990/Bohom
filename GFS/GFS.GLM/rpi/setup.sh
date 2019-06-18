@@ -1,11 +1,9 @@
 # install gfs.glm
 
 # build path
-echo create application path...
-APP_PATH=/usr/local/gfs.glm/rpi
-sudo mkdir $APP_PATH
-sudo mkdir $APP_PATH/src
-sudo mkdir $APP_PATH/shell
+APP_PATH=/usr/local/gfs/glm/rpi
+sudo mkdir -p $APP_PATH/src
+sudo mkdir -p $APP_PATH/shell
 
 echo copy application files...
 # install files 
@@ -22,11 +20,11 @@ sudo chmod 777 $APP_PATH/stop.sh
 sudo chmod 777 $APP_PATH/restart.sh
 
 echo install application dependence...
-# install module
+#install module
 sudo apt update
 sudo apt install python3
-sudo apt install docker
-pip install Pillow
-pip install opencv-python
+#sudo apt install docker
+#pip install Pillow
+#pip install opencv-python
 
 echo Done
