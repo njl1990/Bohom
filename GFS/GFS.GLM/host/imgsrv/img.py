@@ -5,7 +5,7 @@ from pymongo import MongoClient
 
 
 def download(list):
-	mongoClient = MongoClient('0.0.0.0',27016)
+	mongoClient = MongoClient('db',27016)
 	DBClient = mongoClient['glmdb']
 	collection = DBClient['glmRcd']
 	result=collection.find({'_id':{'$nin':list}})

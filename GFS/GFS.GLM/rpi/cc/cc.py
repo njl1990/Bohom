@@ -14,16 +14,14 @@ def CatchUSBVideo(window_name,camera_idx):
 	index = 0 
 
 	while cap.isOpened():
-
-		filename = './img/image_'+str(index)+'.jpg'
-		infofilename='./img/info_'+str(index)+'.json'
+		APP_PATH='/usr/local/gfs/glm/rpi'
+		filename = APP_PATH+'/data/image_'+str(index)+'.jpg'
+		infofilename=APP_PATH+'/data/info_'+str(index)+'.json'
 		ok, frame = cap.read() 
 		cv2.imwrite(filename,frame)
 		crtDate=time.strftime("%Y-%m-%d", time.localtime())
 		crtTime=time.strftime("%H:%M", time.localtime())
-
 		fw = open(infofilename,'w')
-
 		with open (filename,'rb') as image:
 			SaveData={
 				'filename':filename,
