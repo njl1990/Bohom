@@ -1,7 +1,7 @@
-# base image
-FROM python3
-
-# MAINTAINER
+FROM python
 MAINTAINER bowen
-
-ADD ../imgsrv /src
+RUN ["mkdir","-p","/usr/local/mkgif"]
+RUN ["mkdir","-p","/images"]
+RUN ["mkdir","-p","/gif" ]
+COPY ./mkgif.py /usr/mkgif/mkgif.py
+RUN ["pip","install","imageio"]
