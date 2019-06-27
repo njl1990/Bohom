@@ -4,18 +4,7 @@ GLM  is a function moudle to implement the Capture Log, witch will collect image
 ![glm](.\doc\img\glm.png)
 
 
-## 1 Schedule
-#### 12/6 depart the cc module and data save module
-
-When I departed the old cc module, the RPI alway notice an error : 'can't import pymongo'. 
-
-Solution: 
-
-use
-
-> python save.py
-
-instead **sudo python **
+## 1 TODO
 
 ## 2 Dependence
 
@@ -84,6 +73,7 @@ instead **sudo python **
   > .\clweb\dev\static\assets\images\glm\
 
 #### 3.3.2.1 Overview.html
+
 
 
 
