@@ -1,7 +1,6 @@
-FROM python
+FROM seblucas/alpine-python3
 MAINTAINER bowen
-RUN ["mkdir","-p","/usr/local/mkgif"]
 RUN ["mkdir","-p","/images"]
 RUN ["mkdir","-p","/gif" ]
-COPY ./mkgif.py /usr/mkgif/mkgif.py
+COPY ./mkgif.py /mkgif.py
 RUN ["pip","install","imageio"]
