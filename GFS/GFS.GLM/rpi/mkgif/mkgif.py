@@ -9,10 +9,14 @@ def create_gif(image_list, gif_name):
   return
 
 def main():
-
-  image_list = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg']
-  gif_name = 'created_gif.gif'
+  
+  path = '/images'
+  dirs = os.listdir(path)
+  image_list=[]
+  for file in dirs:
+    name = os.path.basename(file)
+    image_list.append('/images/'+name)
+  gif_name = '/gif/create.gif'
   create_gif(image_list, gif_name)
-
 if __name__ == "__main__":
   main()
