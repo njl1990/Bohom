@@ -31,7 +31,9 @@ echo install application dependence...
 # 2. build save
 echo Install save
 echo Build docker images...
-docker build -f /save/Dockerfile -t bowen/gfs.glm.save .
+cd save
+./build.sh
+cd ..
 
 # 2. build mkgif
 echo Install mkgif
@@ -39,7 +41,9 @@ echo Build docker images...
 docker stop gfs.glm.mkgif >/dev/null
 docker rm gfs.glm.mkgif >/dev/null
 docker rmi bowen/gfs.glm.mkgif >/dev/null
-docker build -f /mkgif/Dockerfile -t bowen/gfs.glm.mkgif .
+cd mkgif
+./build.sh
+cd ..
 
 # 4.build runner 
 echo Install appllication entrace...
