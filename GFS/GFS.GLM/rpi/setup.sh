@@ -1,13 +1,47 @@
-# build path
-APP_PATH=/usr/local/gfs/glm/rpi
-sudo mkdir -p $APP_PATH/src
-sudo mkdir -p $APP_PATH/shell
-sudo mkdir -p $APP_PATH/data
+#!/bin/sh
 
-echo copy application files...
-# install files 
-sudo cp ./cc/cc.py $APP_PATH/src/cc.py
-sudo cp ./cc/save.py $APP_PATH/src/save.py
+APP_PATH=/usr/local/gfs/glm
+IMAGE_PATH=/var/gfs/glm/images
+INFO_PATH=/var/gfs/glm/info
+GIF_PATH=/var/gfs/glm/gif
+
+echo Create application path ...
+
+echo create: $APP_PATH
+mkdir -p $APP_PATH
+echo create: $IMAGE_PATH
+mkdir -p $IMAGE_PATH
+echo create: $GIF_PATH
+mkdir -p $GIF_PATH
+echo create: $INFO_PATH
+mkdir -p $INFO_PATH
+
+# 1. build cc 
+echo Install cc
+echo Copy application files...
+cp ./cc/cc.py $APP_PATH/cc.py
+
+# build cc dependence
+echo install application dependence...
+apt update
+apt install python3
+pip install Pillow
+pip install opencv-python
+
+# 2. build save
+echo Install save
+echo Build docker images...
+./save/build.sh
+
+# 2. build mkgif
+echo Install mkgif
+echo Build docker images...
+./mkgif/build.sh
+
+
+# 4.build runner 
+echo Install appllication entrace...
+
 sudo cp ./run.sh  $APP_PATH/run.sh
 sudo cp ./stop.sh  $APP_PATH/stop.sh
 sudo cp ./restart.sh  $APP_PATH/restart.sh
@@ -16,14 +50,4 @@ sudo chmod 777 $APP_PATH/run.sh
 sudo chmod 777 $APP_PATH/stop.sh
 sudo chmod 777 $APP_PATH/restart.sh
 
-echo install application dependence...
-
-#install module
-sudo apt update
-sudo apt install python3
-pip install Pillow
-pip install opencv-python
-pip install pymongo
-
-#setup docker
-echo Done
+echo Success!

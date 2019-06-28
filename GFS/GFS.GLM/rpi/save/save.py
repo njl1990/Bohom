@@ -15,8 +15,11 @@ def main():
 	DBClient = mongoClient['glmdb']
 	collection = DBClient['glmRcd']
 
-	path = './img'
-	dirs = os.listdir(path)
+	IMAGE_PATH='/images'
+	GIF_PATH='/gif'
+	INFO_PATH='/info'
+
+	dirs = os.listdir(INFO_PATH)
 	for file in dirs:
 		name = os.path.basename(file)
 		if '.json' in name:
@@ -42,4 +45,6 @@ def main():
 			fr.close()
 	print('save finish')
 if __name__ == '__main__':
-	main()
+	while 1:
+		main()
+		time.sleep(3600)
