@@ -23,21 +23,23 @@ cp ./cc/cc.py $APP_PATH/cc.py
 
 # build cc dependence
 echo install application dependence...
-apt update
-apt install python3
-pip install Pillow
-pip install opencv-python
+#apt update
+#apt install python3
+#pip install Pillow
+#pip install opencv-python
 
 # 2. build save
 echo Install save
 echo Build docker images...
-./save/build.sh
+docker build -f /save/Dockerfile -t bowen/gfs.glm.save .
 
 # 2. build mkgif
 echo Install mkgif
 echo Build docker images...
-./mkgif/build.sh
-
+docker stop gfs.glm.mkgif >/dev/null
+docker rm gfs.glm.mkgif >/dev/null
+docker rmi bowen/gfs.glm.mkgif >/dev/null
+docker build -f /mkgif/Dockerfile -t bowen/gfs.glm.mkgif .
 
 # 4.build runner 
 echo Install appllication entrace...
