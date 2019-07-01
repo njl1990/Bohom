@@ -1,5 +1,6 @@
 #-*- coding: UTF-8 -*-
 import imageio
+import os
 def create_gif(image_list, gif_name):
   frames = []
   for image_name in image_list:
