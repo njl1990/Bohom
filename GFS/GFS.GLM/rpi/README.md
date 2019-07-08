@@ -1,8 +1,8 @@
-# rpi
-RPI中将执行3个模块：
+# Raspberry PI (RPI) Programs
 
-cc模块：采集图像信息
+Three programs will run in RPI:
+- cc: collect capture
+- mkgif: make gif
+- save: save capture into database
 
-mkgif模块：转化图像信息成为gif
-
-save模块：存储图像信息至数据库
+We are going to make a auto-run script(include ***setup*** and ***run***) instead of the old version.

@@ -16,7 +16,7 @@ GLM  is a function moudle to implement the Capture Log, witch will collect image
 
 > pip install opencv-python 
 
-## 3 Structure
+## 3 Code Structure
 
 ### 3.1 Capture Collector (CC)
 * Deploy on the RPI (raspberry pi)
@@ -74,6 +74,10 @@ GLM  is a function moudle to implement the Capture Log, witch will collect image
 
 #### 3.3.2.1 Overview.html
 
+# 结构设计——GLM实验平台
 
+框架尺寸(外边框): 长*宽*高 400*300*250
+型材规格 2020 
+型材长度： L:360 W:260 H:250
 
-
+型材紧固件 规格： M4
