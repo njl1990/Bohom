@@ -5,14 +5,12 @@ import cv2
 from PIL import Image
 
 
-def CatchUSBVideo(window_name,camera_idx):
+def CatchUSBVideo(window_name,camera_idx,index):
 
 	#CaptureInterval=30*3600
-	CaptureInterval=5 # for test
+	CaptureInterval=30 # for test
 
 	cap = cv2.VideoCapture(camera_idx)
-	index = 0 
-
 	while cap.isOpened():
 		IMAGE_PATH='/images'
 		INFO_PATH='/info'
@@ -35,16 +33,17 @@ def CatchUSBVideo(window_name,camera_idx):
 		fw.close
 		index = index  + 1
 		time.sleep(CaptureInterval)
-
-		if index ==5:
-			break
 	cap.release()
 	cv2.destroyAllWindows()
 
-
 ## Main
 def main():
-	CatchUSBVideo('cc',0)
+	index = 0 
+	while 1:
+		try:
+			CatchUSBVideo('cc',0,index)
+		except Exception as e:
+			print(e)
 
 if __name__ == '__main__':
 	main()

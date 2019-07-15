@@ -1,0 +1,412 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"LoadMach",
+				"LoadMachineInfo"
+			],
+			[
+				"instru",
+				"instruName"
+			],
+			[
+				"CTo",
+				"CTopicConf"
+			],
+			[
+				"Ct",
+				"CTopicConf"
+			],
+			[
+				"CTopi",
+				"CTopicConf"
+			],
+			[
+				"lbls",
+				"label-status"
+			],
+			[
+				"no",
+				"None"
+			],
+			[
+				"selected",
+				"selectedItem"
+			],
+			[
+				"info-co",
+				"info-creator-name"
+			],
+			[
+				"Coop",
+				"CooperatorList"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"in",
+				"industrytype"
+			],
+			[
+				"re",
+				"replace"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"path",
+				"pathDir"
+			],
+			[
+				"projec",
+				"projec_name"
+			],
+			[
+				"pro",
+				"project"
+			],
+			[
+				"po",
+				"project"
+			],
+			[
+				"f",
+				"filter"
+			],
+			[
+				"proj",
+				"projectList"
+			],
+			[
+				"project",
+				"project_name"
+			],
+			[
+				"rem",
+				"remvoed_list"
+			],
+			[
+				"list",
+				"list_data"
+			],
+			[
+				"json",
+				"json_list"
+			],
+			[
+				"try",
+				"try\tTry/Except"
+			],
+			[
+				"cli",
+				"clientInfo"
+			],
+			[
+				"is",
+				"isConnected"
+			],
+			[
+				"cmd",
+				"cmdNotice"
+			],
+			[
+				"log",
+				"LoginUser"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 158.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/project/github/Bohom/GFS/GFS.GLM/cv/count"
+	],
+	"file_history":
+	[
+		"/E/project/github/bostation/bostation-0.2/setup-win.bat",
+		"/E/project/github/bostation/bostation-0.2/setup-win.sh",
+		"/E/project/github/bostation/bostation-0.2/setup.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/stop.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/mkgif/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/setup.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/cc/cc.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/save/save.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/save/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/save/build.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/cc/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/build.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/README.md",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/README.md",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/mkgif/README.md",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/mkgif/mkgif.py",
+		"/E/project/github/pr/Dockerfile",
+		"/E/project/github/pr/natapp/Dockerfile",
+		"/E/project/github/pr/setup.sh",
+		"/E/project/github/pr/web/pr/views.py",
+		"/E/project/github/pr/web/pr/urls.py",
+		"/E/project/github/pr/web/pr/service.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/clweb/bin/clean.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/clweb/build.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/clweb/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/cc/setup.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/cc/save.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/clweb/bin/restart.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/clweb/bin/stop.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/restart.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/build/Dockerfile",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/stop.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/imgsrv/img.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/run.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/setup.sh",
+		"/E/project/github/Bohom/GFS/GFS.GLM/rpi/cc/save.bat",
+		"/E/project/github/Bohom/GFS/GFS.GLM/host/build/DOCKERFILE",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/clweb/dev/glm/views.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/clweb/dev/glm/service.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/clweb/dev/glm/urls.py",
+		"/E/project/Personal-Repositories/bonas/README.md",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/save.bat",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/imgsv.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/clweb/dev/glm/test.bat",
+		"/E/project/Personal-Repositories/pr/email/email.py",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/cc/save.bat",
+		"/E/project/github/Bohom/GFS/GFS.GLM/dev/cc/save.py",
+		"/E/project/github/Bohom/GFS/GFS.TMM/web/README.rm",
+		"/E/project/github/Bohom/GFS/README.rm",
+		"/E/project/github/Bohom/README.md",
+		"/E/project/Personal-Repositories/bohom/README.md",
+		"/E/project/Personal-Repositories/bohom/GFS/README.rm",
+		"/C/Users/htyw/Desktop/工业APP想法.md",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/README.rm",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/deprecated/cc - 副本.py",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/run - 副本.bat",
+		"/E/project/Personal-Repositories/PR1/README.MD",
+		"/E/project/Personal-Repositories/PR/README.MD",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/cc.py",
+		"/E/project/Personal-Repositories/bohom/GFS/GFS.GLM/dev/cc/run.bat",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/client/dc/dc.py",
+		"/E/project/Personal-Repositories/bonas/Plan.md",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.GLM/dev/cc/run.sh",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.GLM/dev/cc/cc.py",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.GLM/README.rm",
+		"/E/project/GitHub-Repositories/Bostation/README.md",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.TMM/README.rm",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.TMM/web/dev/tmm/views.py",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.TMM/web/dev/tmm/service.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/urls.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/client/dc/dcnew.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/log.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/chart.py",
+		"/E/project/GitHub-Repositories/Bohom/GFS/GFS.GLM/dev/vd.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/service.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/models.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/views.py",
+		"/E/project/GitHub-Repositories/Bohom/README.md",
+		"/E/project/GitHub-Repositories/Bohom/GFS/README.rm",
+		"/E/project/GitHub-Repositories/Boindustry/dev/ics/models.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/stub.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/common.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/client/dc/data.txt",
+		"/E/project/html-Repositories/html/blank.html",
+		"/D/wrk/06 项目/12 EIS项目/eis-default.conf",
+		"/E/project/GitHub-Repositories/Boindustry/dev/static/oee/oss.js",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/test.bat",
+		"/E/project/GitHub-Repositories/Boindustry/dev/oee/oeechart.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/ics/views.py",
+		"/E/project/html-Repositories/oee/OeeInfo.html",
+		"/E/project/GitHub-Repositories/Boindustry/dev/html/tasklist.html",
+		"/E/project/GitHub-Repositories/Boindustry/dev/html/createtask.html",
+		"/E/temp/jingixn/post.py",
+		"/E/project/GitHub-Repositories/Boindustry/dev/bostar/urls.py",
+		"/E/project/html-Repositories/ace-master/blank.html",
+		"/E/project/GitHub-Repositories/Boindustry/dev/ics/urls.py",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/html/index.html",
+		"/D/wrk/13 临时工作/企查查工作-20190412/批量工具/result.py",
+		"/D/wrk/04 公司流程&制度/02 技术部/03 产品工作流程/PaaS工具部署手册/应用云化部署手册.md",
+		"/E/project/html-Repositories/ace-master/form-elements.html",
+		"/C/Users/htyw/Desktop/eis-nginx.conf",
+		"/E/project/GitHub-Repositories/Boindustry/dev/bostar/settings.py",
+		"/E/project/html-Repositories/ace-master/invoice.html",
+		"/D/wrk/13 临时工作/企查查工作-20190412/批量工具/result2.py",
+		"/D/wrk/13 临时工作/企查查工作-20190412/录制/update.py",
+		"/D/wrk/13 临时工作/企查查工作-20190412/录制/result.py",
+		"/E/project/html-Repositories/ace-master/form-wizard.html",
+		"/E/project/GitHub-Repositories/Boindustry/dev/process/views.py",
+		"/E/project/html-Repositories/ace-master/tables.html",
+		"/E/project/html-Repositories/html/typography.html",
+		"/E/project/html-Repositories/html/timeline.html",
+		"/D/wrk/13 临时工作/企查查工作-20190412/测试结果/数据处理/名称模糊匹配/match.py",
+		"/E/project/html-Repositories/html/buttons.html",
+		"/E/project/html-Repositories/ace-master/tasklist.html",
+		"/E/project/GitHub-Repositories/Boindustry/dev/html/taskstatus.html",
+		"/E/project/GitHub-Repositories/Bostation/bostation-0.2/bostation/version/version.py",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/process/urls.py",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/process/views.py",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/bostar/settings.py",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/html/chapter.html",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/process/models.py",
+		"/C/Users/htyw/Desktop/查询/test.py",
+		"/E/project/GitHub-Repositories/Bostation/bostation-0.2/setup.py",
+		"/E/project/GitHub-Repositories/Bostation/bostation-0.2/docs/README.md",
+		"/E/project/GitHub-Repositories/Bonas/bostar/bostar/html/project.html",
+		"/E/project/GitHub-Repositories/Bonas/bostar/html/project.html",
+		"/E/project/GitHub-Repositories/Bonas/bostar/html/index.html"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 43.2
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "count.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
