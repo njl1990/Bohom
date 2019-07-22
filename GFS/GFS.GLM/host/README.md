@@ -5,6 +5,8 @@ GLM  is a function moudle to implement the Capture Log, witch will collect image
 
 
 ## 1 TODO
+- move mkgif to host, need to recode the setup scripts
+- need to add the imageio into dependence
 
 ## 2 Dependence
 
@@ -18,26 +20,8 @@ GLM  is a function moudle to implement the Capture Log, witch will collect image
 
 ## 3 Structure
 
-### 3.1 Capture Collector (CC)
-* Deploy on the RPI (raspberry pi)
 
-* buid.sh
-
-  ​	Iinit database
-
-* run.sh/run.bat runs : **cc.py**
-
-  > python cc.py
-
-  running cc main function
-
-  * Use an USB camera collecting image.
-
-  * Save image as file at local path:
-
-    > ./img
-
-### 3.2 Capture Log Database (CLDB)
+### 3.1s Capture Log Database (CLDB)
 * Deploy on the host server.
 
 * Running as a docker container named : **gfs.glm.db**

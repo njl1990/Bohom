@@ -1,8 +1,5 @@
 # Raspberry PI (RPI) Programs
 
-Three programs will run in RPI:
-- cc: collect capture
-- mkgif: make gif
-- save: save capture into database
+See£º
 
-We are going to make a auto-run script(include ***setup*** and ***run***) instead of the old version.
+https://github.com/njl1990/Bohom.GFS.GLM.rpi

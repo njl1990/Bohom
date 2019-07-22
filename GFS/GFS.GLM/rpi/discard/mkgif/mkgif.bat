@@ -1,2 +1,0 @@
-python mkgif.py
-pause

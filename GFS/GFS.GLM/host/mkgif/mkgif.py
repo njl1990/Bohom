@@ -14,10 +14,16 @@ def main():
   path = '/images'
   dirs = os.listdir(path)
   image_list=[]
-  for file in dirs:
-    name = os.path.basename(file)
-    image_list.append('/images/'+name)
-  gif_name = '/gif/create.gif'
+  i=0
+  max=300
+  iterage=3
+  while i<max:
+    image_list.append('image_'+str(i)+'.jpg')
+    i=i+3
+    #image_list.append('/images/'+name)
+  gif_name = 'create.gif'
+  #gif_name = '/gif/create.gif'
   create_gif(image_list, gif_name)
 if __name__ == "__main__":
   main()
+
