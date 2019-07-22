@@ -1,6 +1,9 @@
 # mkgif - make gif file(GFS.GLM.MKGIF)
 This program make image files into gif file.
 
+# TODO
+- need to update this readme.
+
 # Guild
 #### step1
 download ***./build.sh***

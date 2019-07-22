@@ -123,6 +123,24 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "count.py",
+			"settings":
+			{
+				"buffer_size": 2768,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "count.bat",
+			"settings":
+			{
+				"buffer_size": 21,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -291,7 +309,7 @@
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -322,14 +340,77 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "count.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2711,
+								2711
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1608.8,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"file": "opening.jpg",
+					"semi_transient": true,
+					"stack_index": 2,
+					"type": "image"
+				},
+				{
+					"buffer": 1,
+					"file": "count.bat",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -366,7 +447,7 @@
 	"project": "count.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":
